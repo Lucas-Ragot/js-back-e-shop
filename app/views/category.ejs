@@ -1,0 +1,35 @@
+<%- include ('partials/nav') %>
+
+<div class="breadcrumbs">
+    <div class="container">
+        <a href="/shop">Home</a>
+        <i class="fa fa-chevron-right breadcrumb-separator"></i>
+        <span>Shop</span>
+    </div>
+</div>
+
+<div class="products-section container">
+    <div class="sidebar">
+        <h3 class="mt-3"><%= category.name %> <!-- Étape 6 - Insérer ici le nom de la catégorie --></h3>
+    </div>
+
+    <div>
+        <div class="products text-center">
+
+            <!-- Étape 6 - Remplacer cette liste par une bloucle sur la variable `category.products`-->
+            <% for(const product of category.products){ %>     
+            <div class="product">
+                <a href="/product/<%= product.id %>">
+                    <img src="<%= product.image %>" alt="<%= product.title %>" />
+                </a>
+                <a href="/product/<%= product.id %>">
+                    <div class="product-name"><%= product.title %></div>
+                </a>
+                <div class="product-price"><%= product.price %>€</div>
+            </div>
+            <% } %> 
+        </div>
+    </div>
+</div>
+
+<% include ('partials/foot') %>
